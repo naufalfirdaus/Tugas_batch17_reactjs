@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch,useSelector } from 'react-redux'
 import apiRegion from '../api/apiRegion'
-import { GetRegionRequest,DelRegionRequest } from '../redux-saga/action/RegionAction'
 import { useHistory } from 'react-router-dom'
 
 export default function Region() {
     let history = useHistory()
-    const dispatch = useDispatch()
-    const {regions} = useSelector(state => state.regionStated)
-    
+    const [region, setRegion] = useState()
+    let [refresh, setRefresh] = useState(false);
+
+
     useEffect(() => {
-        dispatch(GetRegionRequest())
+        apiRegion.list().then(data => {
+            setRegion(data)
+        })
     }, [])
+
+    useEffect(()=>{
+        apiRegion.list().then(data => {
+            setRegion(data)
+        })
+        setRefresh(false)
+    },[refresh])
 
     const onEdit = async (id) =>{
         history.push(`region/edit/${id}`)
     }
     const onDelete = async (id) =>{
-        dispatch(DelRegionRequest(id))
+        apiRegion.deleteRow(id)
+        .then(()=>{
+            setRefresh(true)
+            window.alert('Data Successfully Deleted')
+        })
+        .catch(error => window.error(error.message))
     }
 
     return (
@@ -31,7 +44,7 @@ export default function Region() {
                 </thead>
                 <tbody>
                     {
-                        regions && regions.map(regi => {
+                        region && region.map(regi => {
                             return (
                                 <tr>
                                     <td>{regi.region_id}</td>
