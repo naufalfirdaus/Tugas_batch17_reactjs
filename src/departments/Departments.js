@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react'
-import apiRegion from '../api/apiRegion'
+import apiDepartments from '../api/apiDepartments'
 import { useHistory } from 'react-router-dom'
 
-export default function Region() {
+export default function Departments() {
     let history = useHistory()
-    const [region, setRegion] = useState()
+    const [Departments, setDepartments] = useState()
     let [refresh, setRefresh] = useState(false);
 
 
     useEffect(() => {
-        apiRegion.list().then(data => {
-            setRegion(data)
+        apiDepartments.list().then(data => {
+            setDepartments(data)
         })
     }, [])
 
     useEffect(()=>{
-        apiRegion.list().then(data => {
-            setRegion(data)
+        apiDepartments.list().then(data => {
+            setDepartments(data)
         })
         setRefresh(false)
     },[refresh])
 
     const onEdit = async (id) =>{
-        history.push(`region/edit/${id}`)
+        history.push(`Departments/edit/${id}`)
     }
     const onDelete = async (id) =>{
-        apiRegion.deleteRow(id)
+        apiDepartments.deleteRow(id)
         .then(()=>{
             setRefresh(true)
             window.alert('Data Successfully Deleted')
@@ -35,24 +35,25 @@ export default function Region() {
 
     return (
         <div>
-            <h2>List of Regions</h2>
-            <button onClick={() => history.push('/region/new')}>Add Region</button>
+            <h2>List of Departments</h2>
+            <button onClick={() => history.push('/Departments/new')}>Add Departments</button>
             <button onClick={() => history.push('/')}>Back</button>
             <table>
                 <thead>
-                    Region Name
+                    Departments Name
                 </thead>
                 <tbody>
                     {
-                        region && region.map(regi => {
+                        Departments && Departments.map(coun => {
                             return (
                                 <tr>
-                                    <td>{regi.region_id}</td>
-                                    <td>{regi.region_name}</td>
-                                    <button onClick={()=>onEdit(regi.region_id)}>Edit</button>
+                                    <td>{coun.department_id}</td>
+                                    <td>{coun.department_name}</td>
+                                    <td>{coun.location_id}</td>
+                                    <button onClick={()=>onEdit(coun.department_id)}>Edit</button>
                                     <button onClick={()=>{
                                         if(window.confirm('Delete this record')) {
-                                            onDelete(regi.region_id)
+                                            onDelete(coun.department_id)
                                         }
                                     }}>Delete</button>
                                 </tr>

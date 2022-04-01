@@ -1,36 +1,44 @@
 import React,{useEffect,useState} from 'react'
-import apiRegion from '../api/apiRegion'
+import apiDepartments from '../api/apiDepartments'
 import {useHistory} from 'react-router-dom'
 
-export default function AddRegion() {
+export default function AddDepartments() {
     let history = useHistory()
     const [value,setValue] = useState({
-        region_id : undefined,
-        region_name : ''
+        department_id : '',
+        department_name : '',
+        location_id:''
     })
     const handleChange = name => event =>{
         setValue({...value,[name]:event.target.value})
     }
     const onSubmit = async()=>{
         const payload = {
-            region_name : (value.region_name) || ''
+            department_id : (value.department_id) || '',
+            department_name : (value.department_name) || '',
         }
-        await apiRegion.Create(payload)
+        await apiDepartments.Create(payload)
         .then(result =>{
             window.alert('Data Succesfully Insert')
-            history.push('/region')
+            history.push('/Departments')
         })
         .catch(error => console.log(error))
     }
   return (
     <div>
-        <h1>Add Regions</h1>
+        <h1>Add Departmentss</h1>
         <form>
+        <div>
+                <label>
+                    department Id : 
+                </label>
+                <input type='text' placeholder='department Id' onChange={handleChange('department_id')} />
+            </div>
             <div>
                 <label>
-                    Region Name : 
+                    Departments Name : 
                 </label>
-                <input type='text' placeholder='Region Name' onChange={handleChange('region_name')} />
+                <input type='text' placeholder='department Name' onChange={handleChange('department_name')} />
             </div>
         </form>
         <div>
