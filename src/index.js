@@ -5,13 +5,30 @@ import App from './App';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import reportWebVitals from './reportWebVitals';
+import store2 from './redux/store/index2';
+import storeToolkit from './features/storeToolkit';
+
+import {createBrowserHistory} from 'history'
+import {Router} from 'react-router-dom'
+import Routes from './Routes';
+
+const browserHistory = createBrowserHistory()
+
+browserHistory.listen(location =>{
+setTimeout(()=>{
+  if (location.action === 'POP') {
+    return
+  }
+  window.scrollTo(0,0)
+})
+})
 
 ReactDOM.render(
   
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+  <Provider store={storeToolkit}>
+    <Router history={browserHistory}>
+      <Routes />
+    </Router>
   </Provider>,
   
   document.getElementById('root')

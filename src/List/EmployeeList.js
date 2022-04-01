@@ -1,24 +1,23 @@
 import React,{useState} from 'react'
+import { useSelector,useDispatch } from 'react-redux'
+import {doGetCart} from '../redux/actions/cartAction'
 
 export default function EmployeeList() {
-    const listEmployee =[
-        {empId:1,fullName:'naufal',salary:4500},
-        {empId:2,fullName:'dian',salary:5500},
-        {empId:3,fullName:'firdaus',salary:5000}
-    ]
-    const [employee, setEmployee] = useState(listEmployee)
+    const dispatch = useDispatch()
+    const employee = useSelector(state=>state.employees)
+    //const [employee, setEmployee] = useState([])
     const PenambahanGaji = (id) => {
-        setEmployee(
-            [...employee.map(emp=>{
-                if (id === emp.empId) {
-                    emp.salary = emp.salary + 500
-                    return emp
-                }
-                else {
-                    return emp
-                }
-            })]
-        )
+        // setEmployee(
+        //     [...employee.map(emp=>{
+        //         if (id === emp.empId) {
+        //             emp.salary = emp.salary + 500
+        //             return emp
+        //         }
+        //         else {
+        //             return emp
+        //         }
+        //     })]
+        // )
     }
   return (
     <div>
