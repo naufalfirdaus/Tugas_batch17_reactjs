@@ -3,7 +3,7 @@ import config from "../config/config";
 
 const list = async () => {
     try{
-        const result = await axios.get(`${config.domain}/regions`)
+        const result = await axios.get(`${config.domain}/departments`)
         return result.data
     } catch (error) {
         return await error.message
@@ -11,7 +11,7 @@ const list = async () => {
 }
 const Create = async(payload)=>{
     try{
-        const result = await axios.post(`${config.domain}/regions`,payload)
+        const result = await axios.post(`${config.domain}/departments`,payload)
         return result
     }catch(error){
         return error
@@ -19,7 +19,7 @@ const Create = async(payload)=>{
 }
 const findOne = async(id)=>{
     try{
-        const result = await axios.get(`${config.domain}/regions/${id}`)
+        const result = await axios.get(`${config.domain}/departments/${id}`)
         return result.data
     } catch (error) {
         return error
@@ -27,7 +27,7 @@ const findOne = async(id)=>{
 }
 const update = async(data)=>{
     try{
-        const result = await axios.put(`${config.domain}/regions/${data.region_id}`,data)
+        const result = await axios.put(`${config.domain}/departments/${data.department_id}`,data)
         return result
     } catch (error) {
         return error
@@ -35,7 +35,7 @@ const update = async(data)=>{
 }
 const deleteRow = async(id)=>{
     try{
-        const result = await axios.delete(`${config.domain}/regions/${id}`)
+        const result = await axios.delete(`${config.domain}/departments/${id}`)
         return result
     } catch (error){
         return error
