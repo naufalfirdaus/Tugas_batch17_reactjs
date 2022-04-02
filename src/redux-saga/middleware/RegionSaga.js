@@ -1,6 +1,6 @@
 import {call,put} from 'redux-saga/effects'
 import apiRegion from '../../api/apiRegion'
-import { GetRegionSuccess,GetRegionFailed, DelRegionSuccess, DelRegionFailed, AddRegionSuccess, AddRegionFailed } from '../action/RegionAction'
+import { GetRegionSuccess,GetRegionFailed, DelRegionSuccess, DelRegionFailed, AddRegionSuccess, AddRegionFailed } from '../actions/RegionAction'
 
 function* handleGetRegion(){
     try {

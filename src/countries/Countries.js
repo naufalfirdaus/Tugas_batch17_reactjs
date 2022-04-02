@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { GetCountriesRequest } from "../redux-saga/action/CountriesAction";
+import { GetCountriesRequest } from "../redux-saga/actions/CountriesAction";
 
 export default function Countries() {
   let history = useHistory();

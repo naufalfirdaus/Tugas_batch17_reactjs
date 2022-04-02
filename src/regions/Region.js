@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import apiRegion from "../api/apiRegion";
-import { GetRegionRequest, DelRegionRequest } from "../redux-saga/action/RegionAction";
+import { GetRegionRequest, DelRegionRequest } from "../redux-saga/actions/RegionAction";
 import { useHistory } from "react-router-dom";
 
 export default function Region() {

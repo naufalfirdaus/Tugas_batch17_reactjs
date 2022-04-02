@@ -1,4 +1,4 @@
-import * as ActionType from '../constants/RegionConstant'
+import * as ActionType from '../constants/Region'
 
 export const GetRegionRequest = () => ({
     type : ActionType.GET_REGIONS_REQUEST

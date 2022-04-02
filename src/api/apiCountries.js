@@ -10,4 +10,13 @@ const list = async () => {
   }
 };
 
-export default { list };
+const create = async (payload) => {
+  try {
+    const result = await axios.post(`${config.domain}/countries`, payload);
+    return result.data;
+  } catch (error) {
+    return await error.message;
+  }
+};
+
+export default { list, create };
