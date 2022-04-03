@@ -15,6 +15,9 @@ export default function MainLayout() {
         <li>
           <Link to="/departments">Departments</Link>
         </li>
+        <li>
+          <Link to="/dependents">Dependents</Link>
+        </li>
       </ul>
     </div>
   );

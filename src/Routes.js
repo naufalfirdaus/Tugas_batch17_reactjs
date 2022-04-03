@@ -10,6 +10,9 @@ import EditCountries from "./countries/EditCountries";
 import Departments from "./departments/Departments";
 import AddDepartments from "./departments/AddDepartments";
 import EditDepartments from "./departments/EditDepartments";
+import Dependents from "./dependents/Dependents";
+import AddDependents from "./dependents/AddDependents";
+import EditDependents from "./dependents/EditDependents";
 
 export default function Routes() {
   return (
@@ -25,6 +28,9 @@ export default function Routes() {
       <Route exact path="/departments" component={Departments} />
       <Route exact path="/departments/new" component={AddDepartments} />
       <Route exact path="/departments/edit/:id" component={EditDepartments} />
+      <Route exact path="/dependents" component={Dependents} />
+      <Route exact path="/dependents/new" component={AddDependents} />
+      <Route exact path="/dependents/edit/:id" component={EditDependents} />
     </Switch>
   );
 }

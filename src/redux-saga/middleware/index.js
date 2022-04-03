@@ -5,6 +5,8 @@ import { handleAddCountries, handleDelCountries, handleGetCountries } from "./Co
 import * as ActionTypeCountries from "../constants/Countries";
 import { handleAddDepartments, handleDelDepartments, handleGetDepartments } from "./DepartmentsSaga";
 import * as ActionTypeDepartments from "../constants/Departments";
+import { handleAddDependents, handleDelDependents, handleGetDependents } from "./DependentsSaga";
+import * as ActionTypeDependents from "../constants/Dependents";
 
 function* watchAll() {
   yield all([
@@ -17,6 +19,9 @@ function* watchAll() {
     takeEvery(ActionTypeDepartments.GET_DEPARTMENTS_REQUEST, handleGetDepartments),
     takeEvery(ActionTypeDepartments.ADD_DEPARTMENTS_REQUEST, handleAddDepartments),
     takeEvery(ActionTypeDepartments.DEL_DEPARTMENTS_REQUEST, handleDelDepartments),
+    takeEvery(ActionTypeDependents.GET_DEPENDENTS_REQUEST, handleGetDependents),
+    takeEvery(ActionTypeDependents.ADD_DEPENDENTS_REQUEST, handleAddDependents),
+    takeEvery(ActionTypeDependents.DEL_DEPENDENTS_REQUEST, handleDelDependents),
   ]);
 }
 
