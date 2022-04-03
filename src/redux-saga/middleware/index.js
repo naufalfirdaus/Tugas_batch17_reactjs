@@ -1,7 +1,7 @@
 import { takeEvery, all } from "redux-saga/effects";
 import { handleAddRegion, handleDelRegion, handleGetRegion } from "./RegionSaga";
 import * as ActionTypeRegion from "../constants/Region";
-import { handleAddCountries, handleGetCountries } from "./CountriesSaga";
+import { handleAddCountries, handleDelCountries, handleGetCountries } from "./CountriesSaga";
 import * as ActionTypeCountries from "../constants/Countries";
 
 function* watchAll() {
@@ -11,6 +11,7 @@ function* watchAll() {
     takeEvery(ActionTypeRegion.ADD_REGIONS_REQUEST, handleAddRegion),
     takeEvery(ActionTypeCountries.GET_COUNTRIES_REQUEST, handleGetCountries),
     takeEvery(ActionTypeCountries.ADD_COUNTRIES_REQUEST, handleAddCountries),
+    takeEvery(ActionTypeCountries.DEL_COUNTRIES_REQUEST, handleDelCountries),
   ]);
 }
 

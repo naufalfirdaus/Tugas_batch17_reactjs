@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { GetCountriesRequest } from "../redux-saga/actions/CountriesAction";
+import { DelCountriesRequest, GetCountriesRequest } from "../redux-saga/actions/CountriesAction";
 
 export default function Countries() {
   let history = useHistory();
@@ -16,9 +16,9 @@ export default function Countries() {
     history.push(`countries/edit/${id}`);
   };
 
-  // const onDelete = async (id) => {
-  //   dispatch(DelRegionRequest(id));
-  // };
+  const onDelete = async (id) => {
+    dispatch(DelCountriesRequest(id));
+  };
 
   return (
     <div>
@@ -41,9 +41,16 @@ export default function Countries() {
                   <td>{e.country_id}</td>
                   <td>{e.country_name}</td>
                   <td>{e.region_id}</td>
-                  <td>
-                    <button onClick={() => onEdit(e.country_id)}>Edit</button>
-                  </td>
+                  <button onClick={() => onEdit(e.country_id)}>Edit</button>
+                  <button
+                    onClick={() => {
+                      if (window.confirm("Delete this record")) {
+                        onDelete(e.country_id);
+                      }
+                    }}
+                  >
+                    Delete
+                  </button>
                 </tr>
               );
             })}

@@ -13,7 +13,7 @@ const list = async () => {
 const create = async (payload) => {
   try {
     const result = await axios.post(`${config.domain}/countries`, payload);
-    return result.data;
+    return result;
   } catch (error) {
     return await error.message;
   }

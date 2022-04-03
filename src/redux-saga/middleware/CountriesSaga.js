@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import apiCountries from "../../api/apiCountries";
-import { GetCountriesSuccess, GetCountriesFailed } from "../actions/CountriesAction";
+import { GetCountriesSuccess, GetCountriesFailed, AddCountriesSuccess, AddCountriesFailed, DelCountriesSuccess } from "../actions/CountriesAction";
 
 function* handleGetCountries() {
   try {
@@ -15,10 +15,20 @@ function* handleAddCountries(action) {
   const { payload } = action;
   try {
     const result = yield call(apiCountries.create, payload);
-    yield put(GetCountriesSuccess(result.data));
+    yield put(AddCountriesSuccess(result.data));
   } catch (error) {
-    yield put(GetCountriesFailed(error));
+    yield put(AddCountriesFailed(error));
   }
 }
 
-export { handleGetCountries, handleAddCountries };
+function* handleDelCountries(action) {
+  const { payload } = action;
+  try {
+    const result = yield call(apiCountries.deleteRow, payload);
+    yield put(DelCountriesSuccess(payload));
+  } catch (error) {
+    yield put(DelCountriesSuccess(error));
+  }
+}
+
+export { handleGetCountries, handleAddCountries, handleDelCountries };

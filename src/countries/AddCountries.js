@@ -8,9 +8,9 @@ export default function AddCountries() {
   const dispatch = useDispatch();
 
   const [value, setValue] = useState({
-    country_id: undefined,
+    country_id: "",
     country_name: "",
-    region_id: undefined,
+    region_id: "",
   });
 
   const handleChange = (name) => (event) => {

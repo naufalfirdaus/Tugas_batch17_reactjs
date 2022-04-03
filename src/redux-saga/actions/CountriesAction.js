@@ -25,6 +25,21 @@ export const AddCountriesSuccess = (payload) => ({
 });
 
 export const AddCountriesFailed = (payload) => ({
-  type: ActionType.ADD_COUNTRIES_SUCCESS,
+  type: ActionType.ADD_COUNTRIES_FAILED,
+  payload,
+});
+
+export const DelCountriesRequest = (payload) => ({
+  type: ActionType.DEL_COUNTRIES_REQUEST,
+  payload,
+});
+
+export const DelCountriesSuccess = (payload) => ({
+  type: ActionType.DEL_COUNTRIES_SUCCESS,
+  payload,
+});
+
+export const DelCountriesFailed = (payload) => ({
+  type: ActionType.DEL_COUNTRIES_FAILED,
   payload,
 });
