@@ -6,6 +6,7 @@ import AddRegion from "./regions/AddRegion";
 import EditRegion from "./regions/EditRegion";
 import Countries from "./countries/Countries";
 import AddCountries from "./countries/AddCountries";
+import EditCountries from "./countries/EditCountries";
 
 export default function Routes() {
   return (
@@ -17,6 +18,7 @@ export default function Routes() {
       <Route exact path="/region/edit/:id" component={EditRegion} />
       <Route exact path="/countries" component={Countries} />
       <Route exact path="/countries/new" component={AddCountries} />
+      <Route exact path="/countries/edit/:id" component={EditCountries} />
     </Switch>
   );
 }

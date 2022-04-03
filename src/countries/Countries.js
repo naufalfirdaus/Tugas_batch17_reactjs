@@ -12,6 +12,14 @@ export default function Countries() {
     dispatch(GetCountriesRequest());
   }, []);
 
+  const onEdit = async (id) => {
+    history.push(`countries/edit/${id}`);
+  };
+
+  // const onDelete = async (id) => {
+  //   dispatch(DelRegionRequest(id));
+  // };
+
   return (
     <div>
       <h2>List of Countries</h2>
@@ -33,6 +41,9 @@ export default function Countries() {
                   <td>{e.country_id}</td>
                   <td>{e.country_name}</td>
                   <td>{e.region_id}</td>
+                  <td>
+                    <button onClick={() => onEdit(e.country_id)}>Edit</button>
+                  </td>
                 </tr>
               );
             })}
