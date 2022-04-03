@@ -15,7 +15,7 @@ const create = async (payload) => {
     const result = await axios.post(`${config.domain}/departments`, payload);
     return result;
   } catch (error) {
-    return error;
+    return await error.message;
   }
 };
 

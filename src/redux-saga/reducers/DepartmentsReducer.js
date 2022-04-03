@@ -40,7 +40,7 @@ const AddDepartmentsSucceed = (state, action) => {
 
 const DelDepartmentsSucceed = (state, action) => {
   const { payload } = action;
-  const filterDepartments = state.departments.filter((el) => el.country_id !== payload);
+  const filterDepartments = state.departments.filter((el) => el.department_id !== payload);
   return {
     ...state,
     departments: [...filterDepartments],

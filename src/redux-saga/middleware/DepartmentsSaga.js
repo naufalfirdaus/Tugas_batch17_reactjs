@@ -1,7 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import apiDepartments from "../../api/apiDepartments";
-import { AddCountriesFailed, AddCountriesSuccess } from "../actions/CountriesAction";
-import { DelDepartmentsFailed, DelDepartmentsSuccess, GetDepartmentsFailed, GetDepartmentsSuccess } from "../actions/DepartmentsAction";
+import { AddDepartmentsFailed, AddDepartmentsSuccess, DelDepartmentsFailed, DelDepartmentsSuccess, GetDepartmentsFailed, GetDepartmentsSuccess } from "../actions/DepartmentsAction";
 
 function* handleGetDepartments() {
   try {
@@ -16,9 +15,9 @@ function* handleAddDepartments(action) {
   const { payload } = action;
   try {
     const result = yield call(apiDepartments.create, payload);
-    yield put(AddCountriesSuccess(result.data));
+    yield put(AddDepartmentsSuccess(result.data));
   } catch (error) {
-    yield put(AddCountriesFailed(error));
+    yield put(AddDepartmentsFailed(error));
   }
 }
 

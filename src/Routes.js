@@ -8,6 +8,8 @@ import Countries from "./countries/Countries";
 import AddCountries from "./countries/AddCountries";
 import EditCountries from "./countries/EditCountries";
 import Departments from "./departments/Departments";
+import AddDepartments from "./departments/AddDepartments";
+import EditDepartments from "./departments/EditDepartments";
 
 export default function Routes() {
   return (
@@ -21,6 +23,8 @@ export default function Routes() {
       <Route exact path="/countries/new" component={AddCountries} />
       <Route exact path="/countries/edit/:id" component={EditCountries} />
       <Route exact path="/departments" component={Departments} />
+      <Route exact path="/departments/new" component={AddDepartments} />
+      <Route exact path="/departments/edit/:id" component={EditDepartments} />
     </Switch>
   );
 }
