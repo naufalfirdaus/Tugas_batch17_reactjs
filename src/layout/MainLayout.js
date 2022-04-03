@@ -10,7 +10,10 @@ export default function MainLayout() {
           <Link to="/region">Region</Link>
         </li>
         <li>
-          <Link to="/countries">countries</Link>
+          <Link to="/countries">Countries</Link>
+        </li>
+        <li>
+          <Link to="/departments">Departments</Link>
         </li>
       </ul>
     </div>

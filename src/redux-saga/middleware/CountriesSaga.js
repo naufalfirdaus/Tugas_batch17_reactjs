@@ -24,7 +24,7 @@ function* handleAddCountries(action) {
 function* handleDelCountries(action) {
   const { payload } = action;
   try {
-    const result = yield call(apiCountries.deleteRow, payload);
+    // const result = yield call(apiCountries.deleteRow, payload);
     yield put(DelCountriesSuccess(payload));
   } catch (error) {
     yield put(DelCountriesSuccess(error));
