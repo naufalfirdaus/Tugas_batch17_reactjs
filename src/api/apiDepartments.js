@@ -29,7 +29,7 @@ const findOne = async (id) => {
 };
 const update = async (data) => {
   try {
-    const result = await axios.put(`${config.domain}/departments/${data.region_id}`, data);
+    const result = await axios.put(`${config.domain}/departments/${data.department_id}`, data);
     return result;
   } catch (error) {
     return error;

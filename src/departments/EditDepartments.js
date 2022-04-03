@@ -39,13 +39,14 @@ export default function EditDepartments({ match }) {
 
   return (
     <div>
+      <h1> Edit Department</h1>
       <form>
         <div>
           <label>Department Name</label>
           <input type="text" placeholder="Department Name" value={values.department_name} onChange={handleChange("department_name")} />
         </div>
         <div>
-          <label>Region Id</label>
+          <label>Location Id</label>
           <input type="text" placeholder="Location ID" value={values.location_id} onChange={handleChange("location_id")} />
         </div>
         <div>
@@ -58,7 +59,7 @@ export default function EditDepartments({ match }) {
               history.goBack();
             }}
           >
-            back
+            Cancel
           </button>
         </div>
       </form>
