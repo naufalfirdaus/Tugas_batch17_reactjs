@@ -7,6 +7,8 @@ import { handleAddDepartments, handleDelDepartments, handleGetDepartments } from
 import * as ActionTypeDepartments from "../constants/Departments";
 import { handleAddDependents, handleDelDependents, handleGetDependents } from "./DependentsSaga";
 import * as ActionTypeDependents from "../constants/Dependents";
+import { handleAddJobs, handleDelJobs, handleGetJobs } from "./JobsSaga";
+import * as ActionTypeJobs from "../constants/Jobs";
 
 function* watchAll() {
   yield all([
@@ -22,6 +24,9 @@ function* watchAll() {
     takeEvery(ActionTypeDependents.GET_DEPENDENTS_REQUEST, handleGetDependents),
     takeEvery(ActionTypeDependents.ADD_DEPENDENTS_REQUEST, handleAddDependents),
     takeEvery(ActionTypeDependents.DEL_DEPENDENTS_REQUEST, handleDelDependents),
+    takeEvery(ActionTypeJobs.GET_JOBS_REQUEST, handleGetJobs),
+    takeEvery(ActionTypeJobs.ADD_JOBS_REQUEST, handleAddJobs),
+    takeEvery(ActionTypeJobs.DEL_JOBS_REQUEST, handleDelJobs),
   ]);
 }
 

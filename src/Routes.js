@@ -13,6 +13,9 @@ import EditDepartments from "./departments/EditDepartments";
 import Dependents from "./dependents/Dependents";
 import AddDependents from "./dependents/AddDependents";
 import EditDependents from "./dependents/EditDependents";
+import Jobs from "./jobs/Jobs";
+import EditJobs from "./jobs/EditJobs";
+import AddJobs from "./jobs/AddJobs";
 
 export default function Routes() {
   return (
@@ -31,6 +34,9 @@ export default function Routes() {
       <Route exact path="/dependents" component={Dependents} />
       <Route exact path="/dependents/new" component={AddDependents} />
       <Route exact path="/dependents/edit/:id" component={EditDependents} />
+      <Route exact path="/jobs" component={Jobs} />
+      <Route exact path="/jobs/edit/:id" component={EditJobs} />
+      <Route exact path="/jobs/new" component={AddJobs} />
     </Switch>
   );
 }
